@@ -1,0 +1,395 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local LogInGui = Instance.new("ScreenGui")
+local LogIn = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local Username = Instance.new("TextBox")
+local Password = Instance.new("TextBox")
+local LogInButton = Instance.new("TextButton")
+local ScriptFrame = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UICorner_4 = Instance.new("UICorner")
+local SilentAim = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local ESP = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local InfJump = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local Fly = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+
+--Properties:
+
+LogInGui.Name = "LogInGui"
+LogInGui.Parent = game.CoreGui
+LogInGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+LogIn.Name = "LogIn"
+LogIn.Parent = LogInGui
+LogIn.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+LogIn.Position = UDim2.new(0.314250946, 0, 0.299331099, 0)
+LogIn.Size = UDim2.new(0, 304, 0, 198)
+
+UICorner.Parent = LogIn
+
+TextLabel.Parent = LogIn
+TextLabel.BackgroundColor3 = Color3.fromRGB(138, 138, 138)
+TextLabel.Position = UDim2.new(0.171052635, 0, 0.0353535339, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 19)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Please Log In to continiue."
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+UICorner_2.Parent = TextLabel
+
+Username.Name = "Username"
+Username.Parent = LogIn
+Username.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Username.Position = UDim2.new(0.171052635, 0, 0.212121218, 0)
+Username.Size = UDim2.new(0, 200, 0, 23)
+Username.Font = Enum.Font.SourceSans
+Username.PlaceholderColor3 = Color3.fromRGB(56, 56, 56)
+Username.PlaceholderText = "Username here..."
+Username.Text = ""
+Username.TextColor3 = Color3.fromRGB(0, 0, 0)
+Username.TextSize = 14.000
+
+Password.Name = "Password"
+Password.Parent = LogIn
+Password.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Password.Position = UDim2.new(0.171052635, 0, 0.535353541, 0)
+Password.Size = UDim2.new(0, 200, 0, 27)
+Password.Font = Enum.Font.SourceSans
+Password.PlaceholderColor3 = Color3.fromRGB(46, 46, 46)
+Password.PlaceholderText = "Password here..."
+Password.Text = ""
+Password.TextColor3 = Color3.fromRGB(0, 0, 0)
+Password.TextSize = 14.000
+
+LogInButton.Name = "LogInButton"
+LogInButton.Parent = LogIn
+LogInButton.BackgroundColor3 = Color3.fromRGB(108, 235, 61)
+LogInButton.Position = UDim2.new(0.111842111, 0, 0.767676771, 0)
+LogInButton.Size = UDim2.new(0, 235, 0, 39)
+LogInButton.Font = Enum.Font.Cartoon
+LogInButton.Text = "LOG IN"
+LogInButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+LogInButton.TextScaled = true
+LogInButton.TextSize = 14.000
+LogInButton.TextWrapped = true
+
+ScriptFrame.Name = "ScriptFrame"
+ScriptFrame.Parent = LogInGui
+ScriptFrame.BackgroundColor3 = Color3.fromRGB(165, 165, 165)
+ScriptFrame.Position = UDim2.new(0.0133982943, 0, 0.269230783, 0)
+ScriptFrame.Size = UDim2.new(0, 110, 0, 235)
+ScriptFrame.Visible = false
+
+UICorner_3.Parent = ScriptFrame
+
+ScrollingFrame.Parent = ScriptFrame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+ScrollingFrame.Position = UDim2.new(0.0727272704, 0, 0.157446802, 0)
+ScrollingFrame.Size = UDim2.new(0, 95, 0, 190)
+
+UICorner_4.Parent = ScrollingFrame
+
+SilentAim.Name = "SilentAim"
+SilentAim.Parent = ScrollingFrame
+SilentAim.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+SilentAim.Position = UDim2.new(0.0736842081, 0, 0.0150173865, 0)
+SilentAim.Size = UDim2.new(0, 67, 0, 27)
+SilentAim.Font = Enum.Font.SourceSans
+SilentAim.Text = "Silent Aim"
+SilentAim.TextColor3 = Color3.fromRGB(0, 0, 0)
+SilentAim.TextSize = 14.000
+SilentAim.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NikolaiV3rm/Scripts/main/Dynamic%20Silent%20Aim.lua", true))()
+end)
+
+UICorner_5.Parent = SilentAim
+
+ESP.Name = "ESP"
+ESP.Parent = ScrollingFrame
+ESP.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+ESP.Position = UDim2.new(0.0736842081, 0, 0.0979961157, 0)
+ESP.Size = UDim2.new(0, 67, 0, 27)
+ESP.Font = Enum.Font.SourceSans
+ESP.Text = "ESP"
+ESP.TextColor3 = Color3.fromRGB(0, 0, 0)
+ESP.TextSize = 14.000
+ESP.MouseButton1Down:connect(function()
+	-- Made by Blissful#4992
+	local Player = game:GetService("Players").LocalPlayer
+	local Camera = game:GetService("Workspace").CurrentCamera
+	local Mouse = Player:GetMouse()
+
+	local function Dist(pointA, pointB) -- magnitude errors for some reason  : (
+		return math.sqrt(math.pow(pointA.X - pointB.X, 2) + math.pow(pointA.Y - pointB.Y, 2))
+	end
+
+	local function GetClosest(points, dest)
+		local min  = math.huge 
+		local closest = nil
+		for _,v in pairs(points) do
+			local dist = Dist(v, dest)
+			if dist < min then
+				min = dist
+				closest = v
+			end
+		end
+		return closest
+	end
+
+	local function DrawESP(plr)
+		local Box = Drawing.new("Quad")
+		Box.Visible = false
+		Box.PointA = Vector2.new(0, 0)
+		Box.PointB = Vector2.new(0, 0)
+		Box.PointC = Vector2.new(0, 0)
+		Box.PointD = Vector2.new(0, 0)
+		Box.Color = Color3.fromRGB(255, 255, 255)
+		Box.Thickness = 2
+		Box.Transparency = 1
+
+		local function Update()
+			local c
+			c = game:GetService("RunService").RenderStepped:Connect(function()
+				if plr.Character ~= nil and plr.Character:FindFirstChildOfClass("Humanoid") ~= nil and plr.Character:FindFirstChild("HumanoidRootPart") ~= nil and plr.Character:FindFirstChildOfClass("Humanoid").Health > 0 and plr.Character:FindFirstChild("Head") ~= nil then
+					local pos, vis = Camera:WorldToViewportPoint(plr.Character.HumanoidRootPart.Position)
+					if vis then 
+						local points = {}
+						local c = 0
+						for _,v in pairs(plr.Character:GetChildren()) do
+							if v:IsA("BasePart") then
+								c = c + 1
+								local p = Camera:WorldToViewportPoint(v.Position)
+								if v.Name == "HumanoidRootPart" then
+									p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(0, 0, -v.Size.Z)).p)
+								elseif v.Name == "Head" then
+									p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(0, v.Size.Y/2, v.Size.Z/1.25)).p)
+								elseif string.match(v.Name, "Left") then
+									p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(-v.Size.X/2, 0, 0)).p)
+								elseif string.match(v.Name, "Right") then
+									p = Camera:WorldToViewportPoint((v.CFrame * CFrame.new(v.Size.X/2, 0, 0)).p)
+								end
+								points[c] = p
+							end
+						end
+						local Left = GetClosest(points, Vector2.new(0, pos.Y))
+						local Right = GetClosest(points, Vector2.new(Camera.ViewportSize.X, pos.Y))
+						local Top = GetClosest(points, Vector2.new(pos.X, 0))
+						local Bottom = GetClosest(points, Vector2.new(pos.X, Camera.ViewportSize.Y))
+
+						if Left ~= nil and Right ~= nil and Top ~= nil and Bottom ~= nil then
+							Box.PointA = Vector2.new(Right.X, Top.Y)
+							Box.PointB = Vector2.new(Left.X, Top.Y)
+							Box.PointC = Vector2.new(Left.X, Bottom.Y)
+							Box.PointD = Vector2.new(Right.X, Bottom.Y)
+
+							Box.Visible = true
+						else 
+							Box.Visible = false
+						end
+					else 
+						Box.Visible = false
+					end
+				else
+					Box.Visible = false
+					if game.Players:FindFirstChild(plr.Name) == nil then
+						c:Disconnect()
+					end
+				end
+			end)
+		end
+		coroutine.wrap(Update)()
+	end
+
+	for _,v in pairs(game:GetService("Players"):GetChildren()) do
+		if v.Name ~= Player.Name then 
+			DrawESP(v)
+		end
+	end
+
+	game:GetService("Players").PlayerAdded:Connect(function(v)
+		DrawESP(v)
+	end)
+end)
+
+UICorner_6.Parent = ESP
+
+InfJump.Name = "InfJump"
+InfJump.Parent = ScrollingFrame
+InfJump.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+InfJump.Position = UDim2.new(0.0736842081, 0, 0.185230151, 0)
+InfJump.Size = UDim2.new(0, 67, 0, 27)
+InfJump.Font = Enum.Font.SourceSans
+InfJump.Text = "Inf Jump"
+InfJump.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfJump.TextSize = 14.000
+InfJump.MouseButton1Down:connect(function()
+	local Player = game:GetService'Players'.LocalPlayer;
+	local UIS = game:GetService'UserInputService';
+
+	_G.JumpHeight = 50;
+
+	function Action(Object, Function) if Object ~= nil then Function(Object); end end
+
+	UIS.InputBegan:connect(function(UserInput)
+		if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+			Action(Player.Character.Humanoid, function(self)
+				if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+					Action(self.Parent.HumanoidRootPart, function(self)
+						self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+					end)
+				end
+			end)
+		end
+	end)
+end)
+
+UICorner_7.Parent = InfJump
+
+Fly.Name = "Fly"
+Fly.Parent = ScrollingFrame
+Fly.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+Fly.Position = UDim2.new(0.0736842081, 0, 0.268208891, 0)
+Fly.Size = UDim2.new(0, 67, 0, 27)
+Fly.Font = Enum.Font.SourceSans
+Fly.Text = "Fly (Might not work/bannable)"
+Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fly.TextScaled = true
+Fly.TextSize = 14.000
+Fly.TextWrapped = true
+Fly.MouseButton1Down:connect(function()
+	repeat wait()
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
+	local mouse = game.Players.LocalPlayer:GetMouse()
+	repeat wait() until mouse
+	local plr = game.Players.LocalPlayer
+	local torso = plr.Character.Torso
+	local flying = true
+	local deb = true
+	local ctrl = {f = 0, b = 0, l = 0, r = 0}
+	local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+	local maxspeed = 50
+	local speed = 0
+
+	function Fly()
+		local bg = Instance.new("BodyGyro", torso)
+		bg.P = 9e4
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		bg.cframe = torso.CFrame
+		local bv = Instance.new("BodyVelocity", torso)
+		bv.velocity = Vector3.new(0,0.1,0)
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+		repeat wait()
+			plr.Character.Humanoid.PlatformStand = true
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+				speed = speed+.5+(speed/maxspeed)
+				if speed > maxspeed then
+					speed = maxspeed
+				end
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+				speed = speed-1
+				if speed < 0 then
+					speed = 0
+				end
+			end
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+			else
+				bv.velocity = Vector3.new(0,0.1,0)
+			end
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+		until not flying
+		ctrl = {f = 0, b = 0, l = 0, r = 0}
+		lastctrl = {f = 0, b = 0, l = 0, r = 0}
+		speed = 0
+		bg:Destroy()
+		bv:Destroy()
+		plr.Character.Humanoid.PlatformStand = false
+	end
+	mouse.KeyDown:connect(function(key)
+		if key:lower() == "e" then
+			if flying then flying = false
+			else
+				flying = true
+				Fly()
+			end
+		elseif key:lower() == "w" then
+			ctrl.f = 1
+		elseif key:lower() == "s" then
+			ctrl.b = -1
+		elseif key:lower() == "a" then
+			ctrl.l = -1
+		elseif key:lower() == "d" then
+			ctrl.r = 1
+		end
+	end)
+	mouse.KeyUp:connect(function(key)
+		if key:lower() == "w" then
+			ctrl.f = 0
+		elseif key:lower() == "s" then
+			ctrl.b = 0
+		elseif key:lower() == "a" then
+			ctrl.l = 0
+		elseif key:lower() == "d" then
+			ctrl.r = 0
+		end
+	end)
+	Fly()
+end)
+
+UICorner_8.Parent = Fly
+
+TextLabel_2.Parent = ScriptFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.127272725, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0, 82, 0, 38)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "Decomp GUI"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+-- Scripts:
+
+local function GKONCUV_fake_script() -- LogInButton.LocalScript 
+	local script = Instance.new('LocalScript', LogInButton)
+
+	local UserData = script.Parent.Parent.Username -- this is the variable for the 'username' textbox. 
+	local button = script.Parent -- this is a variable for the Button.
+	local UserPass = script.Parent.Parent.Password -- this is a variable for the 'Password' textbox
+	local End = script.Parent.Parent.Parent.ScriptFrame -- rename Hackz to ur frame u want to open after logging in.
+	button.MouseButton1Click:Connect(function() -- will run the script down below after clicking the button
+		if UserData.Text == "decompqt" and UserPass.Text == "bestguifr" then -- change noob and 111 to a username and password u want
+			End.Visible = true  -- makes the hack frame visible after logging in.
+			wait(0.1) -- waits one second.
+			script.Parent.Parent.Visible = false -- makes the login frame invisible after logging in.
+		else -- if the pass or username is wrong it will run the script down below
+			button.Text = "Ivalid Password/Username." -- changes the text to invalid info
+			wait(1) -- waits 0,5 secs
+			button.Text = "Try again" -- changes the text to try again
+			wait(1) -- waits another 0,5 secs
+			button.Text = "Login" -- changes the text back to login
+		end -- ends the if statement
+	end) -- ends the button function
+end
+coroutine.wrap(GKONCUV_fake_script)()
