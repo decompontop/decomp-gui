@@ -23,7 +23,12 @@ local InfJump = Instance.new("TextButton")
 local UICorner_7 = Instance.new("UICorner")
 local Fly = Instance.new("TextButton")
 local UICorner_8 = Instance.new("UICorner")
+local SpinBot = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local TriggerBot = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
 local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
 
 --Properties:
 
@@ -93,14 +98,13 @@ ScriptFrame.Parent = LogInGui
 ScriptFrame.BackgroundColor3 = Color3.fromRGB(165, 165, 165)
 ScriptFrame.Position = UDim2.new(0.0133982943, 0, 0.269230783, 0)
 ScriptFrame.Size = UDim2.new(0, 110, 0, 235)
-ScriptFrame.Visible = false
 
 UICorner_3.Parent = ScriptFrame
 
 ScrollingFrame.Parent = ScriptFrame
 ScrollingFrame.Active = true
 ScrollingFrame.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
-ScrollingFrame.Position = UDim2.new(0.0727272704, 0, 0.157446802, 0)
+ScrollingFrame.Position = UDim2.new(0.0636363626, 0, 0.187234044, 0)
 ScrollingFrame.Size = UDim2.new(0, 95, 0, 190)
 
 UICorner_4.Parent = ScrollingFrame
@@ -267,111 +271,172 @@ Fly.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
 Fly.Position = UDim2.new(0.0736842081, 0, 0.268208891, 0)
 Fly.Size = UDim2.new(0, 67, 0, 27)
 Fly.Font = Enum.Font.SourceSans
-Fly.Text = "Fly (Might not work/bannable)"
+Fly.Text = "doesnt work"
 Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
 Fly.TextScaled = true
 Fly.TextSize = 14.000
 Fly.TextWrapped = true
-Fly.MouseButton1Down:connect(function()
-	repeat wait()
-	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")
-	local mouse = game.Players.LocalPlayer:GetMouse()
-	repeat wait() until mouse
-	local plr = game.Players.LocalPlayer
-	local torso = plr.Character.Torso
-	local flying = true
-	local deb = true
-	local ctrl = {f = 0, b = 0, l = 0, r = 0}
-	local lastctrl = {f = 0, b = 0, l = 0, r = 0}
-	local maxspeed = 50
-	local speed = 0
-
-	function Fly()
-		local bg = Instance.new("BodyGyro", torso)
-		bg.P = 9e4
-		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-		bg.cframe = torso.CFrame
-		local bv = Instance.new("BodyVelocity", torso)
-		bv.velocity = Vector3.new(0,0.1,0)
-		bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
-		repeat wait()
-			plr.Character.Humanoid.PlatformStand = true
-			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
-				speed = speed+.5+(speed/maxspeed)
-				if speed > maxspeed then
-					speed = maxspeed
-				end
-			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
-				speed = speed-1
-				if speed < 0 then
-					speed = 0
-				end
-			end
-			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
-			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
-				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-			else
-				bv.velocity = Vector3.new(0,0.1,0)
-			end
-			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
-		until not flying
-		ctrl = {f = 0, b = 0, l = 0, r = 0}
-		lastctrl = {f = 0, b = 0, l = 0, r = 0}
-		speed = 0
-		bg:Destroy()
-		bv:Destroy()
-		plr.Character.Humanoid.PlatformStand = false
-	end
-	mouse.KeyDown:connect(function(key)
-		if key:lower() == "e" then
-			if flying then flying = false
-			else
-				flying = true
-				Fly()
-			end
-		elseif key:lower() == "w" then
-			ctrl.f = 1
-		elseif key:lower() == "s" then
-			ctrl.b = -1
-		elseif key:lower() == "a" then
-			ctrl.l = -1
-		elseif key:lower() == "d" then
-			ctrl.r = 1
-		end
-	end)
-	mouse.KeyUp:connect(function(key)
-		if key:lower() == "w" then
-			ctrl.f = 0
-		elseif key:lower() == "s" then
-			ctrl.b = 0
-		elseif key:lower() == "a" then
-			ctrl.l = 0
-		elseif key:lower() == "d" then
-			ctrl.r = 0
-		end
-	end)
-	Fly()
-end)
 
 UICorner_8.Parent = Fly
 
-TextLabel_2.Parent = ScriptFrame
+SpinBot.Name = "SpinBot"
+SpinBot.Parent = ScrollingFrame
+SpinBot.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+SpinBot.Position = UDim2.new(0.0650717542, 0, 0.342329234, 0)
+SpinBot.Size = UDim2.new(0, 67, 0, 29)
+SpinBot.Font = Enum.Font.SourceSans
+SpinBot.Text = "Spinbot"
+SpinBot.TextColor3 = Color3.fromRGB(0, 0, 0)
+SpinBot.TextSize = 14.000
+SpinBot.MouseButton1Down:connect(function()
+	--made by retard#5405
+	local lp = game:GetService("Players").LocalPlayer
+	local client = getsenv(lp.PlayerGui.Client)
+	local spincurrent = 0
+	local hitpart = nil
+	game:GetService('RunService').RenderStepped:Connect(function()
+		if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Space) and game:GetService("UserInputService"):GetFocusedTextBox() == nil then
+			if lp.Character and lp.Character:FindFirstChild('Humanoid') and lp.Character:FindFirstChild('HumanoidRootPart') then
+				if lp.Character.HumanoidRootPart:FindFirstChild('gamervelocity') then
+					lp.Character.HumanoidRootPart.gamervelocity.Velocity = (lp.Character.Humanoid.MoveDirection) * 40
+					lp.Character.Humanoid.Jump = true
+				else
+					lp.Character.Humanoid.Jump = true
+					local velocity = Instance.new('BodyVelocity', lp.Character.HumanoidRootPart)
+					velocity.Name = 'gamervelocity'
+					velocity.maxForce = Vector3.new(100000, 0, 100000)
+					velocity.Velocity = (lp.Character.Humanoid.MoveDirection) * 40
+				end
+			end
+		else
+			if lp.Character and lp.Character:FindFirstChild('Humanoid') and lp.Character:FindFirstChild('HumanoidRootPart') then
+				if lp.Character.HumanoidRootPart:FindFirstChild('gamervelocity') then
+					lp.Character.HumanoidRootPart.gamervelocity:Destroy()
+				end
+			end
+		end
+		if lp.Character and lp.Character:FindFirstChild('Humanoid') and lp.Character:FindFirstChild('HumanoidRootPart') then
+			spincurrent = spincurrent + 45
+			lp.Character.Humanoid.AutoRotate = false
+			lp.Character.HumanoidRootPart.CFrame = CFrame.new(lp.Character.HumanoidRootPart.Position, lp.Character.HumanoidRootPart.Position + Vector3.new(5,0,0)) * CFrame.Angles(0, math.rad(spincurrent), 0)
+		end
+		lp.CameraMode = 'Classic'
+		lp.CameraMaxZoomDistance = 10
+		lp.CameraMinZoomDistance = 10
+		workspace.CurrentCamera.FieldOfView = 100
+		if workspace.Status.Preparation.Value == false and lp.Character and lp.Character:FindFirstChild('Humanoid') and lp.Character:FindFirstChild('HumanoidRootPart') and lp.Character.Humanoid.Health > 0 then
+			for _, player in pairs(game:GetService('Players'):GetPlayers()) do
+				if player.Team ~= lp.Team then
+					if player.Status.Alive.Value == true and player.Character and not player.Character:FindFirstChild('ForceField') and player.Character:FindFirstChild('Humanoid') and player.Character:FindFirstChild('HeadHB') and player.Character.Humanoid.Health > 0 then
+						local collision = lp.Character.HumanoidRootPart.CFrame.p + Vector3.new(0, 1.4, 0)
+						local ignore = {workspace.Ray_Ignore, lp.Character, workspace:WaitForChild('Map').Clips}
+						local ray = Ray.new(
+							collision,
+							(player.Character.Head.Position-collision).unit * math.clamp(client.gun.Range.Value, 1, 300)
+						)
+						for _, accessory in pairs(player.Character:GetChildren()) do
+							if accessory:IsA('Accessory') then
+								table.insert(ignore,accessory)
+							end
+						end
+						local hit,pos = workspace:FindPartOnRayWithIgnoreList(ray,ignore,false,true)
+						if hit and hit.Parent == player.Character then
+							hitpart = player.Character.HeadHB
+							if not client.DISABLED then
+								client.firebullet()
+							end
+						else
+							hitpart = nil
+						end
+					end
+				end
+			end
+		end
+	end)
+	local meta = getrawmetatable(game) 
+	local index = meta.__index
+	local realnamecall = meta.__namecall
+	local newindex = meta.__newindex
+	setreadonly(meta, false)
+
+	meta.__namecall = newcclosure(function(self,...)
+		local args = {...}
+		local namecall = getnamecallmethod()
+		if namecall == "GetState" then
+			return Enum.HumanoidStateType.Physics
+		end
+		if namecall == "InvokeServer" and self.Name == "Hugh" then
+			return
+		end
+		if namecall == 'FireServer' and self.Name == 'ControlTurn' then
+			args[1] = -1
+		end
+		if namecall == "FindPartOnRayWithIgnoreList" then
+			if hitpart and lp.Character then
+				local _ = lp.Character.HumanoidRootPart.CFrame.p + Vector3.new(0, 1.4, 0)
+				args[1] = Ray.new(_, CFrame.new(_, hitpart.CFrame.p).lookVector.unit * 999)
+			end	  
+		end
+		return realnamecall(self, unpack(args))
+	end)
+	meta.__index =
+		newcclosure(function(self, G)
+		if not checkcaller() and self == lp and G == "CameraMode" and lp.Character then
+			lp.CameraMode = 'Classic'
+			return 20
+		end
+		return index(self, G)
+	end
+	)
+end)
+
+UICorner_9.Parent = SpinBot
+
+TriggerBot.Name = "TriggerBot"
+TriggerBot.Parent = ScrollingFrame
+TriggerBot.BackgroundColor3 = Color3.fromRGB(170, 170, 170)
+TriggerBot.Position = UDim2.new(0.0650717542, 0, 0.427435607, 0)
+TriggerBot.Size = UDim2.new(0, 67, 0, 29)
+TriggerBot.Font = Enum.Font.SourceSans
+TriggerBot.Text = "Trigger Bot"
+TriggerBot.TextColor3 = Color3.fromRGB(0, 0, 0)
+TriggerBot.TextSize = 14.000
+TriggerBot.MouseButton1Down:connect(function()
+	local player = game:GetService("Players").LocalPlayer
+	local mouse = player:GetMouse()
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if mouse.Target.Parent:FindFirstChild("Humanoid") and mouse.Target.Parent.Name ~= player.Name then
+			mouse1press() wait() mouse1release()
+		end
+	end)
+end)
+
+UICorner_10.Parent = TriggerBot
+
+TextLabel_2.Parent = ScrollingFrame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.127272725, 0, 0, 0)
-TextLabel_2.Size = UDim2.new(0, 82, 0, 38)
-TextLabel_2.Font = Enum.Font.Cartoon
-TextLabel_2.Text = "Decomp GUI"
+TextLabel_2.Position = UDim2.new(0.0842105299, 0, 0.504004776, 0)
+TextLabel_2.Size = UDim2.new(0, 65, 0, 12)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "More Soon"
 TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = ScriptFrame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.127272725, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 82, 0, 38)
+TextLabel_3.Font = Enum.Font.Cartoon
+TextLabel_3.Text = "Pistol 1v1 GUI"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
 
 -- Scripts:
 
-local function GKONCUV_fake_script() -- LogInButton.LocalScript 
+local function WPTOA_fake_script() -- LogInButton.LocalScript 
 	local script = Instance.new('LocalScript', LogInButton)
 
 	local UserData = script.Parent.Parent.Username -- this is the variable for the 'username' textbox. 
@@ -392,4 +457,4 @@ local function GKONCUV_fake_script() -- LogInButton.LocalScript
 		end -- ends the if statement
 	end) -- ends the button function
 end
-coroutine.wrap(GKONCUV_fake_script)()
+coroutine.wrap(WPTOA_fake_script)()
