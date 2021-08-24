@@ -33,7 +33,7 @@ local TextLabel_3 = Instance.new("TextLabel")
 --Properties:
 
 LogInGui.Name = "LogInGui"
-LogInGui.Parent = game.Workspace
+LogInGui.Parent = game.CoreGui
 LogInGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 LogIn.Name = "LogIn"
